@@ -21,6 +21,13 @@ stages:
           projects: '*.csproj'
       - task: Docker@2
         inputs:
+          containerRegistry: 'dockerhub-connection'
+          repository: 'test-dotnet'
           command: 'build'
           Dockerfile: '**/Dockerfile'
-      
+      - task: Docker@2
+        inputs:
+          containerRegistry: 'dockerhub-connection'
+          repository: 'test-dotnet'
+          command: 'push'
+
