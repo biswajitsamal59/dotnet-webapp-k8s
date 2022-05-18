@@ -18,7 +18,7 @@ stages:
       - task: DotNetCoreCLI@2
         inputs:
           command: 'build'
-          projects: '*.csproj'
+          projects: '**/*.csproj'
       - task: Docker@2
         inputs:
           containerRegistry: 'dockerhub-connection'
