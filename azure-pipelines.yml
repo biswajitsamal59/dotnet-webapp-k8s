@@ -41,7 +41,7 @@ stages:
                   ConnectionType: 'AzureRM'
                   azureSubscription: 'azure-connection'
                   appType: 'webAppContainer'
-                  WebAppName: 'dotnetwebappdocker'
+                  WebAppName: 'dotnetwebappdocker12'
                   DockerNamespace: 'docker.io'
                   DockerRepository: 'biswajit59/test-dotnet:$(Build.BuildId)'
 
