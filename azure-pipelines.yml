@@ -26,6 +26,26 @@ stages:
           command: 'buildAndPush'
           Dockerfile: '**/Dockerfile'
           tags: 
+  - stage: Publish Image
+    pool:
+      vmImage: ubuntu-latest
+    jobs:
+      - deployment: 
+        environment: Dev
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - task: AzureRmWebAppDeployment@4
+                inputs:
+                  ConnectionType: 'AzureRM'
+                  azureSubscription: 'azure-connection'
+                  appType: 'webAppContainer'
+                  WebAppName: 'dotnetwebappdocker'
+                  DockerNamespace: 'docker.io'
+                  DockerRepository: 'biswajit59/test-dotnet:$(Build.BuildId)'
+
+          
 
       
 
